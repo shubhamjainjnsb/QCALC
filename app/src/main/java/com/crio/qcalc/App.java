@@ -10,5 +10,31 @@ public class App {
 
     public static void main(String[] args) {
         System.out.println(new App().getGreeting());
+        System.out.println("Starting QCalc..");
+
+        StandardCalculator calc = new StandardCalculator();
+
+        // Perform arithmetic operations
+        calc.add(1, 2);
+        calc.printResult(); // Print the result
+        calc.clearResult(); // Clear the result
+
+        calc.subtract(5, 3);
+        calc.printResult();
+        calc.clearResult();
+
+        calc.multiply(4, 3);
+        calc.printResult();
+        calc.clearResult();
+
+        try {
+            calc.divide(8, 4);
+            calc.printResult();
+            calc.clearResult();
+        } catch (ArithmeticException e) {
+            System.out.println(e.getMessage());
+            calc.clearResult();
+        }
+    
     }
 }
