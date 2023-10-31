@@ -14,6 +14,10 @@ public class App {
 
         StandardCalculator calc = new StandardCalculator();
 
+        
+        float f1 = 234.5f;
+        double d1 = 12.3;
+
         // Perform arithmetic operations
         calc.add(1, 2);
         calc.printResult(); // Print the result
