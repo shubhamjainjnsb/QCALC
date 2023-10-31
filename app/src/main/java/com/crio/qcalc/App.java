@@ -39,6 +39,12 @@ public class App {
             System.out.println(e.getMessage());
             calc.clearResult();
         }
+        calc.add(Double.MAX_VALUE, 1.0);
+        calc.printResult();
+        calc.add(Double.MAX_VALUE, Double.MAX_VALUE);
+        calc.printResult();
+
+
     
     }
 }
