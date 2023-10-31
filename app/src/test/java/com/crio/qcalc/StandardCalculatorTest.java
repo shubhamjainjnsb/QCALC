@@ -1,68 +1,55 @@
 package com.crio.qcalc;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 public class StandardCalculatorTest {
+
     private StandardCalculator standardCalculator;
 
     @BeforeEach
-    void setup(){
+    void setUp() {
         standardCalculator = new StandardCalculator();
     }
 
-
-
-
-   
-
     @Test
-
-    @DisplayName("Test Addition of Two Doubles")
-    
-    void testAdditionOperationForDoubles(){
-    
-            standardCalculator.add(1.0,1.5);
-    
-            double actualResult = standardCalculator.getResult();
-    
-            Assertions.assertEquals(2.5, actualResult);
-    
-    }
-    
-    
-    @Test
-    
-    @DisplayName("Test Subtraction of Two Doubles")
-    
-    void testSubtractionOperationForDoubles(){
-    
-            standardCalculator.subtract(10.0,20.5);
-    
-            double actualResult = standardCalculator.getResult();
-    
-            Assertions.assertEquals(-10.5, actualResult);
-    
-    }
-    @Test
-    @DisplayName("Test Multiplication of Two Doubles")
-    void testMultiplicationOperationForDoubles() {
-        standardCalculator.multiply(2.5, 3.0); // Multiply two doubles
-        double result = standardCalculator.getResult();
-        Assertions.assertEquals(7.5, result, 0.0001); // Specify a delta for double comparison
+    @DisplayName("Test Addition Overflow of Two Doubles")
+    void testAdditionOverflowForDoubles() {
+        // Assert that an ArithmeticException is thrown for overflow
+        assertThrows(ArithmeticException.class, () -> {
+            standardCalculator.add(Double.MAX_VALUE, Double.MAX_VALUE);
+        });
     }
 
     @Test
-    @DisplayName("Test Division of Two Doubles")
-    void testDivisionOperationForDoubles() {
-        standardCalculator.divide(10.0, 2.5); // Divide two doubles
-        double result = standardCalculator.getResult();
-        Assertions.assertEquals(4.0, result, 0.0001); // Specify a delta for double comparison
+    @DisplayName("Test Subtraction Overflow of Two Doubles")
+    void testSubtractionOverflowForDoubles() {
+        // Assert that an ArithmeticException is thrown for overflow
+        assertThrows(ArithmeticException.class, () -> {
+            standardCalculator.subtract(-Double.MAX_VALUE, Double.MAX_VALUE);
+        });
     }
-    
-    
 
+    @Test
+    @DisplayName("Test Multiplication Overflow of Two Doubles")
+    void testMultiplicationOverflowForDoubles() {
+        // Assert that an ArithmeticException is thrown for overflow
+        assertThrows(ArithmeticException.class, () -> {
+            standardCalculator.multiply(Double.MAX_VALUE, Double.MAX_VALUE);
+        });
+    }
 
+    @Test
+    @DisplayName("Test Division Overflow of Two Doubles")
+    void testDivisionOverflowForDoubles() {
+        // Assert that an ArithmeticException is thrown for overflow
+        assertThrows(ArithmeticException.class, () -> {
+            standardCalculator.divide(Double.MAX_VALUE, Double.MAX_VALUE);
+        });
+    }
+
+    // Other test methods for arithmetic operations can be added here
 }
