@@ -5,6 +5,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import org.junit.jupiter.api.function.Executable;
+import org.junit.jupiter.api.Assertions;
 
 public class StandardCalculatorTest {
 
@@ -18,7 +20,6 @@ public class StandardCalculatorTest {
     @Test
     @DisplayName("Test Addition Overflow of Two Doubles")
     void testAdditionOverflowForDoubles() {
-        // Assert that an ArithmeticException is thrown for overflow
         assertThrows(ArithmeticException.class, () -> {
             standardCalculator.add(Double.MAX_VALUE, Double.MAX_VALUE);
         });
@@ -27,7 +28,6 @@ public class StandardCalculatorTest {
     @Test
     @DisplayName("Test Subtraction Overflow of Two Doubles")
     void testSubtractionOverflowForDoubles() {
-        // Assert that an ArithmeticException is thrown for overflow
         assertThrows(ArithmeticException.class, () -> {
             standardCalculator.subtract(-Double.MAX_VALUE, Double.MAX_VALUE);
         });
@@ -36,7 +36,6 @@ public class StandardCalculatorTest {
     @Test
     @DisplayName("Test Multiplication Overflow of Two Doubles")
     void testMultiplicationOverflowForDoubles() {
-        // Assert that an ArithmeticException is thrown for overflow
         assertThrows(ArithmeticException.class, () -> {
             standardCalculator.multiply(Double.MAX_VALUE, Double.MAX_VALUE);
         });
@@ -45,9 +44,19 @@ public class StandardCalculatorTest {
     @Test
     @DisplayName("Test Division Overflow of Two Doubles")
     void testDivisionOverflowForDoubles() {
-        // Assert that an ArithmeticException is thrown for overflow
         assertThrows(ArithmeticException.class, () -> {
             standardCalculator.divide(Double.MAX_VALUE, Double.MAX_VALUE);
+        });
+    }
+
+    @Test
+    @DisplayName("Test Division Divide By Zero Scenario")
+    void testDivisionDivideByZero() {
+        Assertions.assertThrows(ArithmeticException.class, new Executable() {
+            @Override
+            public void execute() throws Throwable {
+                standardCalculator.divide(10, 0);
+            }
         });
     }
 
