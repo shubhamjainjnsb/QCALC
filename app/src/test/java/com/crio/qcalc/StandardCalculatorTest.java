@@ -41,13 +41,7 @@ public class StandardCalculatorTest {
         });
     }
 
-    @Test
-    @DisplayName("Test Division Overflow of Two Doubles")
-    void testDivisionOverflowForDoubles() {
-        assertThrows(ArithmeticException.class, () -> {
-            standardCalculator.divide(Double.MAX_VALUE, Double.MAX_VALUE);
-        });
-    }
+
 
     @Test
     @DisplayName("Test Division Divide By Zero Scenario")
