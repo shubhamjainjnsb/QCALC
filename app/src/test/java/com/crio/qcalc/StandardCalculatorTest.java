@@ -58,16 +58,18 @@ public class StandardCalculatorTest {
     void testSubtractionOfTwoDoubles() {
         assertThrows(ArithmeticException.class, () -> {
             standardCalculator.subtract(-Double.MAX_VALUE, Double.MAX_VALUE);
+        });
+    }
+    
+
+    @Test
+@DisplayName("Test Addition of Two Doubles")
+void testAdditionOfTwoDoubles() {
+    assertThrows(ArithmeticException.class, () -> {
+        standardCalculator.add(Double.MAX_VALUE, Double.MAX_VALUE);
     });
 }
 
-    @Test
-    @DisplayName("Test Addition of Two Doubles")
-    void testAdditionOfTwoDoubles() {
-        assertThrows(ArithmeticException.class, () -> {
-            standardCalculator.add(Double.MAX_VALUE, Double.MAX_VALUE);
-        });
-    }
 
     // Other test methods for arithmetic operations can be added here
 }
