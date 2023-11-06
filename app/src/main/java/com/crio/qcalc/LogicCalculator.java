@@ -7,7 +7,7 @@ public class LogicCalculator extends StandardCalculator {
     }
 
     public void AND(int num1, int num2) {
-        result = num1 & num2; // Use '&' for bitwise AND
+        result = num1 & num2;
     }
 
     public void OR(int num1, int num2) {
@@ -24,6 +24,6 @@ public class LogicCalculator extends StandardCalculator {
 
     @Override
     public void printResult() {
-        System.out.println("Logic Calculator Result:" + result);
+        System.out.println("Logic Calculator Result: " + result);
     }
 }
