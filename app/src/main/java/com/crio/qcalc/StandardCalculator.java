@@ -3,6 +3,8 @@ package com.crio.qcalc;
 public class StandardCalculator {
    protected double result;
 
+
+
    public final void add(double num1, double num2) {
       if ((num1+num2)==Double.MAX_VALUE || (num1+num2)==Double.POSITIVE_INFINITY) {
          throw new ArithmeticException("Double overflow");
@@ -10,6 +12,9 @@ public class StandardCalculator {
          this.result = num1 + num2;
       }
    }
+
+
+
    
 
    public final void subtract(double num1, double num2) {
@@ -21,6 +26,8 @@ public class StandardCalculator {
    }
    
 
+
+   
    public final void multiply(double num1, double num2) {
       double result = num1 * num2;
       if (!Double.isInfinite(result) && !Double.isNaN(result)) {
