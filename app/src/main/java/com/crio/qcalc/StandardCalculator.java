@@ -4,27 +4,25 @@ public class StandardCalculator {
    protected double result;
 
 
-
-   public final void add(double num1, double num2) {
-      if ((num1+num2)==Double.MAX_VALUE || (num1+num2)==Double.POSITIVE_INFINITY) {
-         throw new ArithmeticException("Double overflow");
-      } else {
-         this.result = num1 + num2;
+   public final void add(double num1, double num2){
+      double result = num1 + num2;
+      if((result == Double.MAX_VALUE) || (result == Double.POSITIVE_INFINITY)){
+          throw new ArithmeticException("Double overflow");
+  
       }
-   }
+      this.result = result;
+  
+  }
+  
 
-
-
-   
-
-   public final void subtract(double num1, double num2) {
-      if ((num1-num2)==-Double.MAX_VALUE || (num1-num2)==Double.NEGATIVE_INFINITY) {
-         throw new ArithmeticException("Double overflow");
-      } else {
-         this.result = num1 - num2;
+  public final void subtract(double num1, double num2){
+      double result = num1 - num2;
+      if((result == -Double.MAX_VALUE) || (result == Double.NEGATIVE_INFINITY)){
+          throw new ArithmeticException("Double overflow");
       }
-   }
-   
+      this.result = result;
+  }
+
 
 
    
