@@ -4,7 +4,7 @@ public class StandardCalculator {
    protected double result;
 
    public final void add(double num1, double num2) {
-      if (Double.isInfinite(num1 + num2) || Double.isNaN(num1 + num2)) {
+      if ((num1+num2)==Double.MAX_VALUE || (num1+num2)==Double.POSITIVE_INFINITY || Double.isInfinite(num1 + num2) || Double.isNaN(num1 + num2)) {
          throw new ArithmeticException("Double overflow");
       } else {
          this.result = num1 + num2;
@@ -13,7 +13,7 @@ public class StandardCalculator {
    
 
    public final void subtract(double num1, double num2) {
-      if (Double.isInfinite(num1 - num2) || Double.isNaN(num1 - num2)) {
+      if ((num1-num2)==-Double.MAX_VALUE || (num1-num2)==Double.NEGATIVE_INFINITY ||Double.isInfinite(num1 - num2) || Double.isNaN(num1 - num2)) {
          throw new ArithmeticException("Double overflow");
       } else {
          this.result = num1 - num2;
