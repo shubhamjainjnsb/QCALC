@@ -4,22 +4,22 @@ public class StandardCalculator {
    protected double result;
 
    public final void add(double num1, double num2) {
-      double result = num1 + num2;
-      if (!Double.isInfinite(result) && !Double.isNaN(result)) {
-         this.result = result;
-      } else {
+      if (Double.isInfinite(num1 + num2) || Double.isNaN(num1 + num2)) {
          throw new ArithmeticException("Double overflow");
+      } else {
+         this.result = num1 + num2;
       }
    }
+   
 
    public final void subtract(double num1, double num2) {
-      double result = num1 - num2;
-      if (!Double.isInfinite(result) && !Double.isNaN(result)) {
-         this.result = result;
-      } else {
+      if (Double.isInfinite(num1 - num2) || Double.isNaN(num1 - num2)) {
          throw new ArithmeticException("Double overflow");
+      } else {
+         this.result = num1 - num2;
       }
    }
+   
 
    public final void multiply(double num1, double num2) {
       double result = num1 * num2;
